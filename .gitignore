@@ -1,0 +1,27 @@
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Earth Engine credentials
+.config/earthengine/
+*.json.key
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large/raw data (keep repo lightweight — raw imagery shouldn't be committed)
+*.tif
+*.tiff
+data/raw/
+
+# VS Code settings (optional)
+.vscode/
