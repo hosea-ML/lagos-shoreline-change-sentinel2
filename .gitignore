@@ -9,19 +9,30 @@ __pycache__/
 
 # Jupyter
 .ipynb_checkpoints/
+*.ipynb.bak
 
 # Earth Engine credentials
 .config/earthengine/
 *.json.key
+*credentials*
+
+# Environment variables / secrets
+.env
+
+# Large/raw data (keep repo lightweight — raw imagery shouldn't be committed)
+# Note: .gpkg files (vectorized shorelines, small final outputs) are NOT
+# excluded here - only raw raster imagery and anything under data/raw/.
+*.tif
+*.tiff
+data/raw/
+
+# Logs
+*.log
 
 # OS files
 .DS_Store
 Thumbs.db
 
-# Large/raw data (keep repo lightweight — raw imagery shouldn't be committed)
-*.tif
-*.tiff
-data/raw/
-
-# VS Code settings (optional)
+# Editor/IDE settings
 .vscode/
+.idea/
