@@ -23,13 +23,13 @@ Nigeria's coastline stretches roughly 853 km, and large stretches of it — incl
 
 Problem Statement
 
-The Lagos Barrier Island segment — including Bar Beach, Ahmadu Bello Way, Lekki, and lagoon-fringe communities such as Ojogun, Okun-Ibese, Makoko, and Mobido is experiencing ongoing coastal erosion, driven by a mix of natural coastal dynamics (wave action, longshore sediment transport, sea-level rise) and human activity (dredging of the Lekki-Ikoyi channel, jetty and breakwater construction disrupting sediment supply, unplanned coastal development).
+The Lagos Barrier Island segment — including Bar Beach, Ahmadu Bello Way, Lekki, and lagoon-fringe communities such as Ojogun, Okun-Ibese, Makoko, and Mobido — is experiencing ongoing coastal erosion, driven by a mix of natural coastal dynamics (wave action, longshore sediment transport, sea-level rise) and human activity (dredging of the Lekki-Ikoyi channel, jetty and breakwater construction disrupting sediment supply, unplanned coastal development).
 
-Despite this, there is no continuously updated, freely reproducible shoreline change dataset for this stretch of coast covering this period using optical satellite data. Existing studies tend to rely on radar (SAR) data or shorter time windows, and most Nigerian coastal monitoring relies on sparse field surveys or outdated aerial photography which is expensive, slow, and infrequent.
+Despite this, there is no continuously updated, freely reproducible shoreline change dataset for this stretch of coast covering this period using optical satellite data. Existing studies tend to rely on radar (SAR) data or shorter time windows, and most Nigerian coastal monitoring relies on sparse field surveys or outdated aerial photography — expensive, slow, and infrequent.
 
 Core question this project answers:
 
-How can freely available Sentinel-2 optical imagery be used to build a reproducible, multi-year (2017–2026) shoreline change dataset for the Lagos Barrier Island coast, in order to quantify erosion/accretion rates and identify at-risk communities using a low-cost, open-source Python + GIS workflow that could be replicated for any other Nigerian coastal site?
+How can freely available Sentinel-2 optical imagery be used to build a reproducible, multi-year (2017–2026) shoreline change dataset for the Lagos Barrier Island coast, in order to quantify erosion/accretion rates and identify at-risk communities — using a low-cost, open-source Python + GIS workflow that could be replicated for any other Nigerian coastal site?
 
 Data Limitations
 
@@ -44,9 +44,9 @@ Simpler coastal geometry. An open barrier/spit coast (rather than a fragmented m
 A validation benchmark already exists. A prior Sentinel-1 SAR-based DSAS study found erosion rates of roughly 1.45 m/year along this coast, naming at-risk communities. This project's optical-based results can be directly compared against that benchmark.
 Objectives
 ✅ Build a multi-year (2017–2026), cloud-filtered Sentinel-2 shoreline dataset for the Lagos Barrier Island coast.
-⬜ Quantify shoreline change using standard metrics (NSM, EPR, LRR).
-⬜ Produce an erosion/accretion risk map identifying at-risk communities.
-⬜ Validate results against existing SAR-based literature.
+✅ Quantify shoreline change using standard metrics (NSM, EPR, LRR).
+✅ Produce an erosion/accretion risk map identifying at-risk communities.
+✅ Validate results against existing SAR-based literature.
 ⬜ Deliver an open, reproducible pipeline that can be adapted to other Nigerian coastal sites.
 Pipeline
 Sentinel-2
@@ -66,7 +66,7 @@ Erosion/accretion map      ⬜ pending
 Python + GIS visualisation ⬜ pending
 Tools & Stack
 Google Earth Engine — server-side Sentinel-2 querying, filtering, and processing
-Python — earthengine-api, geemap, rasterio, geopandas, shapely, numpy, matplotlib
+Python — earthengine-api, geemap, rasterio, geopandas, shapely, numpy, matplotlib, scipy
 QGIS — cartographic visualization and manual QA
 GitHub — version control, documentation, and public collaboration
 VS Code — development environment
@@ -83,9 +83,11 @@ Repository Structure
     02_preprocessing.ipynb     → cloud masking, MNDWI water index, visual QA
     03_shoreline_extraction.ipynb → Otsu thresholding, vectorization, noise
                                   cleanup, final dataset assembly and export
+    04_change_analysis.ipynb  → transects, NSM/EPR/LRR, erosion/accretion map
 
 /docs          → methodology write-up, weekly video links
 /outputs       → final maps, figures
+    lagos_erosion_accretion_map_2017_2026.png
 Getting Started
 bash
 git clone https://github.com/hosea-ML/lagos-shoreline-change-sentinel2.git
@@ -95,7 +97,7 @@ source venv/Scripts/activate   # Windows Git Bash
 # or: source venv/bin/activate # Mac/Linux
 pip install -r requirements.txt
 
-Earth Engine setup: the first run of any notebook requires a one-time Earth Engine authentication (a browser prompt will appear). If a later notebook stage needs to export data to Google Drive, request the Drive scope explicitly during authentication, see the authentication cell in 01_data_acquisition.ipynb (or any of the three notebooks) for the exact scoped-authentication call used in this project.
+Earth Engine setup: the first run of any notebook requires a one-time Earth Engine authentication (a browser prompt will appear). If a later notebook stage needs to export data to Google Drive, request the Drive scope explicitly during authentication — see the authentication cell in 01_data_acquisition.ipynb (or any of the notebooks) for the exact scoped-authentication call used in this project.
 
 Progress Log / Weekly Videos
 Week	Focus	Video
@@ -103,7 +105,7 @@ Week	Focus	Video
 2	Sentinel-2 acquisition, cloud masking, MNDWI, Otsu-thresholded shoreline extraction, study period adjusted to 2017–2026, full dataset assembled (599 features), pipeline split into staged notebooks	link pending
 Contributing
 
-This project is open to contributions: bug fixes, alternative index methods, additional AOIs, documentation improvements, and result validation are all welcome. See CONTRIBUTING.md for details on how to get involved.
+This project is open to contributions — bug fixes, alternative index methods, additional AOIs, documentation improvements, and result validation are all welcome. See CONTRIBUTING.md for details on how to get involved.
 
 Licensing
 Code (scripts, notebooks): MIT License
